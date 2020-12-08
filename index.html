@@ -26,6 +26,10 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- grafica -->
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://mauriciopoppe.github.io/function-plot/js/function-plot.js"></script>
+
   <!-- =======================================================
   * Template Name: eStartup - v2.1.0
   * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
@@ -229,15 +233,15 @@
         <div class="row">
           <div class="col-lg-2 col-md-2"></div>
           <div class="col-lg-4 col-md-5">
-            Frecuencia: <input type="number" class="form-control" placeholder="hz">
+            Frecuencia: <input type="number" id="frecuencia" class="form-control" placeholder="hz">
           </div>
           <div class="col-lg-4 col-md-5">
-            Longitud del tubo de Quincke: <input type="number" class="form-control" placeholder="cm">
+            Longitud de onda: <input type="number" id="longitud-onda" class="form-control" placeholder="metros">
           </div>
         </div>
         <div class="row pt-5">
           <div class="col">
-            <button class="boton">Verificar</button>
+            <button class="boton" onclick="verificar()">Verificar</button>
             <!-- class="btn btn-outline-success" style="border: 3px solid #71C55D; color:#71C55D" -->
           </div>
         </div>
@@ -245,6 +249,29 @@
         
       </div>
     </section><!-- End Features Section -->
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="simulador" tabindex="-1" role="dialog" aria-labelledby="simuladorTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Interferómetro análogo </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="onda"></div>
+            <input type="range" name="" id="barra" min="0" max="1" step="0.1" value="0.0" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="boton" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- ======= Screenshots Section ======= -->
     <!-- <section id="screenshots" class="padd-section text-center">
@@ -503,6 +530,10 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Algoritmos de la simulacion -->
+  <script src="js/frecuencia.js"></script>
+  <script id="jsbin-javascript" src="js/interferometro.js"></script>
 
 </body>
 
