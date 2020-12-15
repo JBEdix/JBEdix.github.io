@@ -1481,3 +1481,20 @@ body.mobile-nav-active #mobile-nav-toggle i {
   letter-spacing: 0;
   color: #71c55d;
 }
+
+.text-size{
+  font-size: 1.3rem;
+}
+
+.link{
+  color: #71c55d!important;
+}
+
+.link:hover{
+  text-decoration: underline #71c55d!important;
+}
+
+.posicion:hover{
+  background-color: #92d283!important;
+  cursor: pointer!important;
+}
