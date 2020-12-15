@@ -1,9 +1,10 @@
+let velocidad;
+
 function verificar() {
-    // Grafico de la onda -----------------------------------------
+    // Grafico de las ondas -----------------------------------------
     let frecuencia = parseFloat( document.getElementById('frecuencia').value);
     let logitudOnda = parseFloat(document.getElementById('longitud-onda').value);
 
-    
     if (document.getElementById('frecuencia').value ==  '' || document.getElementById('longitud-onda').value == '' ) {
         alert('Debe ingresar la longitud de onda y la frecuencia para poder usar el simulador.')
     }else{
@@ -78,6 +79,26 @@ function verificar() {
     
         });
     }
+
+    // Encontrar la velocidad del sonido y la verificacion de los datos
+    velocidad = frecuencia * logitudOnda;
+
+    // Asumimos que la temperatura es de 28 grados. Dato tomado de la implementacion del modelo fisico.
+    Vteorico =(331 * Math.sqrt( 1  +  ( 28/ 273 ))) ;
+
+    let respuesta;
+
+    if (velocidad <= (Vteorico + 8) && velocidad >= (Vteorico - 8) ) {
+        respuesta = '<span class= "text-size text-success">La longitud de onda y la frecuencia estan bien parametrizados.</span>';
+    } else if(velocidad >= (Vteorico + 5)){
+        respuesta = '<span class= "text-size text-danger">Se tiene que ajustar la frecuencia para que se pueda ajustar a la velocidad del sonido.</span> <strong>Se tiene que ingresar una frecuencia mas baja.</strong>';
+    } else if(velocidad <= (Vteorico - 5)){
+        respuesta = '<span class= "text-size text-danger">Se tiene que ajustar la frecuencia para que se pueda ajustar a la velocidad del sonido.</span> <strong>Se tiene que ingresar una frecuencia mas alta.</strong>';
+    }
+
+    document.getElementById('resultado').innerHTML = `
+        <p class="px-5 text-size">La velocidad del sonido teórico es de <strong>${Vteorico}m/s</strong> y la velocidad encontrada a partir de la longitud de onda es de <strong>${velocidad}m/s</strong>. ${respuesta}</p>
+    `;
 }
 
 function modalOndasFase(){
