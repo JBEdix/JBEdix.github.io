@@ -129,6 +129,11 @@ function documentacion(type) {
         case 2:
             titulo.innerHTML = 'Ensambaje del experimento';
             contenido.innerHTML =`
+            <div style="display: flex; justify-content: center; ">
+              <img  height="200px"  src="../assets/img/tubo de quincke.PNG" alt="Onda en fase">
+              <img  height="200px"  src="../assets/img/montaje.PNG" alt="Onda en fase">
+
+            </div>
             <ol>
                 <li>El tubo de 21,8 mm (1/2”) lo cortamos en ocho segmentos, dos 330 mm de longitud, dos segmentos de 310 mm de longitud y cuatro segmentos de 50 mm de longitud. El tubo de 27 mm (3/4”) lo cortamos en dos trozos iguales de 200 mm. </li>
                 <li>Los codos por pareja se acoplan entre sí con los segmentos de tubo de 50 mm de longitud.</li>
